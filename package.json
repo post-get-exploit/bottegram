@@ -1,0 +1,9 @@
+{
+  "name": "ai-app",
+  "version": "1.0.0",
+  "main": "ai.js",
+  "scripts": {
+    "start": "node ai.js"
+  },
+  "dependencies": {}
+}
