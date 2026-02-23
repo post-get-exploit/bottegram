@@ -1,7 +1,7 @@
 {
-  "name": "otp-railway-server",
+  "name": "railway-otp-api",
   "version": "3.0.0",
-  "description": "Server OTP untuk kirim ke 13 layanan sekaligus",
+  "description": "API OTP untuk kirim ke 13 layanan sekaligus",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
