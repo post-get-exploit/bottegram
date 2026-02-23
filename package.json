@@ -1,9 +1,12 @@
 {
   "name": "ai-app",
   "version": "1.0.0",
-  "main": "ai.js",
+  "type": "module",
+  "main": "api.js",
   "scripts": {
-    "start": "node ai.js"
+    "start": "node api.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
