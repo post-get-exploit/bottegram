@@ -1,8 +1,13 @@
-import { handleBot } from "../../bot.js";
-import { auth } from "../../api.js";
+import express from "express";
+import { handleBot } from "./bot.js";
+import { auth } from "./api.js";
 
-export default async function handler(req, res) {
+const app = express();
+app.use(express.json());
+
+app.all("/api/bot", async (req, res) => {
   const token = req.query.token;
+
   if (!token) {
     return res.status(400).json({ ok: false, msg: "token required" });
   }
@@ -11,12 +16,15 @@ export default async function handler(req, res) {
     return res.json({ ok: true, msg: "logout" });
   }
 
-  // webhook telegram
   if (req.method === "POST") {
     await handleBot(token, req.body);
     return res.json({ ok: true });
   }
 
-  // test connect
   res.json({ ok: true, msg: "API connected" });
-}
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log("Server running on port " + port);
+});
